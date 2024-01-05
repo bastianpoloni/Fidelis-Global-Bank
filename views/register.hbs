@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    {{>styles}}
+</head>
+
+<body>
+     <header>
+            {{>navbar}}
+            <h1 class="text-center p-3">Area de Registro</h1>
+        </header>
+    <main class="container-fluid">
+       
+        <div class="container col-md-6 mt-5">
+            <form action="/v2/register" method="post">
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Nombre</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Completo">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Rut</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="rut" name="rut" placeholder="Sin puntos y con guión">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="email@email.com">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="confirm" name="confirm" placeholder="Confirme Contraseña">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary me-2">Registrarme</button>
+            </form>
+
+        </div>
+    </main>
+    {{>scripts}}
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movimientos</title>
+    {{>styles}}
+</head>
+
+<body>
+    <header>
+        {{>navbar}}
+        <h1 class="text-center p-3">Transferencias</h1>
+    </header>
+    <main class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Destinatario</th>
+                    <th scope="col">Monto</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each listaTransferencia}}
+                <tr>
+                    <th scope="row">{{this.id}}</th>
+                    <td>{{receptor}}</td>
+                    <td>{{monto}}</td>
+
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </main>
+    {{>scripts}}
+</body>
+
+</html>

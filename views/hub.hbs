@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub</title>
+    {{>styles}}
+</head>
+
+<body class=".body">
+    <header>
+        {{>navbar}}
+        <h1 class="text-center p-3">Bienvenido {{loginUser.nombre}} !</h1>
+
+    </header>
+    <main class="container">
+        <div class="row mb-3 ">
+            <div class="col-md-5 p-4 border rounded m-3 ">
+                <h3>Modificar Datos</h3>
+                <form action="/v2/update?_method=PUT" method="post">
+                    {{>form}}
+                    <button type="submit" class="btn btn-primary me-2">Modificar</button>
+                </form>
+
+            </div>
+            <div class="col-md-5 p-4 border rounded m-3 ">
+                <h3>Transferir</h3>
+                <form action="/v2/transferencia" method="post">
+                    <select name="receptor" class="form-select mb-3" aria-label="Default select example">
+                        <option selected>Destinatario</option>
+                        {{#each usuarios}}
+                        <option value='{{id}}'>{{nombre}}</option>
+                        {{/each}}
+                    </select>
+                    <div class="mb-3 row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Monto</label>
+                        <div>
+                            <input type="number" class="form-control" id="monto" name="monto" placeholder="$">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary me-2">Transferir</button>
+
+                </form>
+
+
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6 p-5 ms-3 me-3 border rounded ">
+                <h3>Movimientos</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Destinatario</th>
+                            <th scope="col">Monto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each movimientos}}
+                        <tr>
+                            <th scope="row">{{id}}</th>
+                            <td>{{receptor}}</td>
+                            <td>${{monto}}</td>
+
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="col-md-5 p-2 border rounded m-auto">
+                
+                <form action="/v2/delete?_method=DELETE" method="post">
+                <h3>Eliminar Cuenta</h3>
+                    <button type="submit" class="btn btn-primary me-2">Eliminar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    {{>scripts}}
+</body>
+
+</html>
