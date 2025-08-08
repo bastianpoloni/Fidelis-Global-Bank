@@ -12,7 +12,7 @@ h1 {
 }
 
 body {
-    background-image: url(../img/wallpaper.webp);
+    background-image: url(../img/wallpaper.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     
@@ -22,3 +22,12 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
+.container.col-md-6.mt-5 {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.form{
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
+}
